@@ -1,0 +1,56 @@
+﻿@using System.Web.Mvc.Html
+@using Znachor.Models
+@using ViewModels_Towar = Znachor.Models.Towar
+@model List<ViewModels_Towar>
+
+@{
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Produkty</h2>
+<div><hr /></div>
+
+<p>
+  @{
+    List<string> listItems = new List<string>();
+    listItems.Add("tabletki");
+    listItems.Add("syropy");
+    listItems.Add("bandarze");
+  }
+  @Html.DropDownList("categories", new SelectList(listItems), "Kategoria", new { @class = "form-control col-md-4" })
+  @Html.TextBox("search", "Wyszukaj", new { @class = "form-control col-md-4" })
+  @Html.ActionLink("Wyszukaj", "Index", "Products", new { @class = "btn btn-default col-md-4" })<br>
+
+  <div><hr /></div>
+</p>
+
+<table class="table">
+
+  @foreach (var item in Model.ToList())
+  {
+    <tr>
+      <td>
+        <img src="~/Images/tabs.jpg" alt="" style="width:200px;height:150px;">
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.nazwa)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.cena_netto)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.producent)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.forma)
+      </td>
+      <td>
+        @if (User.Identity.IsAuthenticated)
+        {
+          @Html.ActionLink("Dodaj do koszyka", "AddToCart", new { id = item.id_towaru }, new { @class = "btn btn-default" })
+        }
+      </td>
+    </tr>
+  }
+</table>

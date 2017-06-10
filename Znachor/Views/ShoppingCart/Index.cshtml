@@ -1,0 +1,47 @@
+﻿@model List<Znachor.ViewModels.TowarViewModel>
+
+@{
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Koszyk</h2>
+
+<table class="table">
+  @{ decimal cartSum = 0;}
+  @foreach (var item in Model.ToList())
+  {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.nazwa)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.count)
+        @Html.ActionLink("+", "ChangeProductCount", new { id = item.id_towaru, i = item.count + 1 }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("-", "ChangeProductCount", new { id = item.id_towaru, i = item.count - 1 }, new { @class = "btn btn-primary" })
+        @*<input id="demo_vertical" type="text" value="" name="demo_vertical">*@
+      </td>
+      <td>
+        @item.cena_netto.ToString("F") x @item.count =
+        @{ decimal sum = item.count * item.cena_netto;
+          cartSum += sum;}
+
+        @sum.ToString("F")
+      </td>
+      <td>
+        @Html.ActionLink("X", "DeletoFromCart", new { id = item.id_towaru }, new { @class = "btn btn-danger" })
+      </td>
+    </tr>
+          }
+
+  <tr>
+    <td>Suma zamówienia:</td>
+    <td></td>
+    <td>
+      @cartSum.ToString("F") zł
+    </td>
+    <td>
+      @Html.ActionLink("Złóż zamówienie", "Index","Order", new { },new { @class = "btn btn-default" })
+    </td>
+  </tr>
+</table>
