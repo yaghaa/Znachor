@@ -17,7 +17,7 @@
 
 <h2>Suma Zamówienia: @val</h2>
 <div><hr /></div>
-
+@Html.BeginForm(){
 <p>
     @{
       List<string> listItems = new List<string>();
@@ -29,10 +29,10 @@
 
     }
     <div class="col-md-12">
-       
+
         <div class="col-md-5">
             Wybierz sposób dostawy
-            <br/>
+            <br />
             @foreach (var cat in listItems)
             {
             @Html.RadioButtonFor(x => x.Shipment, cat, new { name = cat });@cat
@@ -49,17 +49,17 @@
               listItems2.Add("Gotówka przy odbiorze");
 
             }
-            @{ 
+            @{
               var entery = listItems.Count() > listItems2.Count() ? listItems.Count : listItems2.Count;
             }
-            @for(var i = 0; i< entery+1; i++)
+            @for (var i = 0; i < entery + 1; i++)
             {
-              <br/>
+            <br />
             }
         </div>
         <div class="col-md-5">
             Wybierz sposób płatności
-            <br/>
+            <br />
             @foreach (var cat in listItems2)
             {
             @Html.RadioButtonFor(x => x.Payment, cat);@cat
@@ -68,55 +68,59 @@
         </div>
         <br />
     </div>
-@for (var i = 0; i < entery+1; i++)
-{
-<br />
-}
+    @for (var i = 0; i < entery + 1; i++)
+    {
+    <br />
+    }
 
 
     <div><hr /></div>
     <div class=" col-md-12">Dane do dostawy:</div>
 
-        <div class="col-md-12">
-            <div class="col-md-3" align="right">Imię:</div>
-            @Html.TextBoxFor(x => x.FirstName, new { @class = "col-md-4" })
-        </div>
-        <br />
-    <br />
-
-        <div class="col-md-12">
-            <div class="col-md-3" align="right">Nazwisko:</div>
-            @Html.TextBoxFor(x => x.Surname, new { @class = "col-md-4" })
-        </div>
-        <br />
-    <br />
-
-        <div class="col-md-12">
-            <div class="col-md-3" align="right">Ulica:</div>
-            @Html.TextBoxFor(x => x.Street, new { @class = "col-md-4" })
-        </div>
-        <br />
-    <br />
-
-        <div class="col-md-12">
-            <div class="col-md-3" align="right">Kod pocztowy:</div>
-            @Html.TextBoxFor(x => x.PostalCode, new { @class = "col-md-4" })
-        </div>
-        <br />
-    <br />
-
-        <div class="col-md-12">
-            <div class="col-md-3" align="right">Miasto:</div>
-            @Html.TextBoxFor(x => x.City, new { @class = "col-md-4" })
-        </div>
-
-    <br />
-    <div><hr /></div>
-    <div align="right">
-        @Html.ActionLink("Przejdź do płatności", "Index", "Order", new { }, new { @class = "btn btn-default" })
+    <div class="col-md-12">
+        <div class="col-md-3" align="right">Imię:</div>
+        @Html.TextBoxFor(x => x.FirstName, new { @class = "col-md-4" })
     </div>
-   
-    
-  
+    <br />
+    <br />
+
+    <div class="col-md-12">
+        <div class="col-md-3" align="right">Nazwisko:</div>
+        @Html.TextBoxFor(x => x.Surname, new { @class = "col-md-4" })
+    </div>
+    <br />
+    <br />
+
+    <div class="col-md-12">
+        <div class="col-md-3" align="right">Ulica:</div>
+        @Html.TextBoxFor(x => x.Street, new { @class = "col-md-4" })
+    </div>
+    <br />
+    <br />
+
+    <div class="col-md-12">
+        <div class="col-md-3" align="right">Kod pocztowy:</div>
+        @Html.TextBoxFor(x => x.PostalCode, new { @class = "col-md-4" })
+    </div>
+    <br />
+    <br />
+
+    <div class="col-md-12">
+        <div class="col-md-3" align="right">Miasto:</div>
+        @Html.TextBoxFor(x => x.City, new { @class = "col-md-4" })
+    </div>
+
+    <br />
+    <div><hr/>
+    </div>
+    <div align="right">
+       <button class="btn btn-default" type="submit"></button>
+    </div>
+    }
+
+
+
+
+
 </p>
 
