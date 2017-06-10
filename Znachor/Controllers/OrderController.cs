@@ -25,7 +25,7 @@ namespace Znachor.Controllers
       }
        
       //TODO: Zapis do bazy
-      return RedirectToAction("Index", "Payment");
-    }
+      return RedirectToAction("Index", "OderDetails");
+     }
     }
 }

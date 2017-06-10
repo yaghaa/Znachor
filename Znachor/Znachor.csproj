@@ -204,7 +204,7 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ParseFileController.cs" />
     <Compile Include="Controllers\ParseFileControllerTest.cs" />
-    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\OderDetailsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
@@ -228,6 +228,7 @@
     <Compile Include="Models\Kategoria.cs" />
     <Compile Include="Models\Koszyk.cs" />
     <Compile Include="Models\Kurier.cs" />
+    <Compile Include="Models\OderedProductModel.cs" />
     <Compile Include="Models\PosiadaKategorie.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Przesylka.cs" />
@@ -245,6 +246,7 @@
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\OrderViewModel.cs" />
     <Compile Include="ViewModels\TowarViewModel.cs" />
   </ItemGroup>
@@ -316,7 +318,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
-    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\OderDetails\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
